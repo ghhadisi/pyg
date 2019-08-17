@@ -28,3 +28,8 @@ hs_err_pid*
 /.idea/misc.xml
 /.idea/encodings.xml
 /.idea/workspace.xml
+/.idea/libraries/
+/.idea/pyg.iml
+/common/common.iml
+/pojo/pojo.iml
+/dao/dao.iml
