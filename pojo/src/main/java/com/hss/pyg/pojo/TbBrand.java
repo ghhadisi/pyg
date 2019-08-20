@@ -1,14 +1,19 @@
 package com.hss.pyg.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
 @Data
+@TableName("TBBRAND")
 public class TbBrand implements Serializable{
+
+
     private Long id;
-
+    @TableField(value = "name")
     private String name;
-
+    @TableField(value = "firstChar")
     private String firstChar;
 
 }
