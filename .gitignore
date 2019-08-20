@@ -28,6 +28,7 @@ hs_err_pid*
 /.idea/misc.xml
 /.idea/encodings.xml
 /.idea/workspace.xml
+/*/target/
 /.idea/libraries/
 
 /*/*.iml
