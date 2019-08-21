@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class TbBrand implements Serializable{
 
 
-    private Long id;
+    private int id;
     @TableField(value = "name")
     private String name;
     @TableField(value = "firstChar")
