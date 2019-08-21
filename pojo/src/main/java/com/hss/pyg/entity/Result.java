@@ -1,4 +1,4 @@
-package entity;
+package com.hss.pyg.entity;
 
 import java.io.Serializable;
 /**
