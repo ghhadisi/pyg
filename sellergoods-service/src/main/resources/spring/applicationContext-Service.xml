@@ -26,5 +26,6 @@
     <!--<dubbo:annotation package="com.pyg.sellergoods.service" />-->
 
     <dubbo:service interface="com.pyg.sellergoods.service.BrandService" ref="brandServiceImpl"  timeout="300000"/>
+    <dubbo:service interface="com.pyg.sellergoods.service.SpecificationService" ref="specificationServiceImpl"  timeout="300000"/>
 
 </beans>

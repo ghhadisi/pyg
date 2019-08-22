@@ -6,7 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 @Data
-@TableName("TBBRAND")
+@TableName("tb_brand")
 public class TbBrand implements Serializable{
 
 
