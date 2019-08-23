@@ -1,45 +1,23 @@
 package com.hss.pyg.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
 import java.io.Serializable;
 
+@TableName("tb_specification_option")
+@Data
 public class TbSpecificationOption implements Serializable{
     private Long id;
 
+    @TableField(value = "option_name")
     private String optionName;
 
+    @TableField(value = "spec_id")
     private Long specId;
 
     private Integer orders;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getOptionName() {
-        return optionName;
-    }
-
-    public void setOptionName(String optionName) {
-        this.optionName = optionName == null ? null : optionName.trim();
-    }
-
-    public Long getSpecId() {
-        return specId;
-    }
-
-    public void setSpecId(Long specId) {
-        this.specId = specId;
-    }
-
-    public Integer getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Integer orders) {
-        this.orders = orders;
-    }
 }

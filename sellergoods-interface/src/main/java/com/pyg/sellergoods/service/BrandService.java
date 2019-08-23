@@ -4,6 +4,7 @@ import com.hss.pyg.entity.PageResult;
 import com.hss.pyg.pojo.TbBrand;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -57,5 +58,10 @@ public interface BrandService{
 	 * @return
 	 */
 	public PageResult findPage(TbBrand brand, int pageNum,int pageSize);
-	
+
+	/**
+	 * 返回下拉列表数据
+	 * @return
+	 */
+	public List<Map<String, Object>> selectOptionList();
 }

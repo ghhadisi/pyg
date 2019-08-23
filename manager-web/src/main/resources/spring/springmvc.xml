@@ -37,6 +37,7 @@
 -->
     <dubbo:reference interface="com.pyg.sellergoods.service.BrandService" id="brandService" />
     <dubbo:reference interface="com.pyg.sellergoods.service.SpecificationService" id="specificationService" />
+    <dubbo:reference interface="com.pyg.sellergoods.service.TypeTemplateService" id="typeTemplateService" />
 
 <!--
     <dubbo:protocol name="dubbo" port="${dubbo.port}"/>

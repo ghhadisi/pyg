@@ -1,55 +1,25 @@
 package com.hss.pyg.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
+@TableName(value = "tb_type_template")
 public class TbTypeTemplate implements Serializable{
     private Long id;
 
     private String name;
 
+    @TableField(value = "spec_ids")
     private String specIds;
 
+    @TableField(value = "brand_ids")
     private String brandIds;
 
+    @TableField(value = "custom_attribute_items")
     private String customAttributeItems;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getSpecIds() {
-        return specIds;
-    }
-
-    public void setSpecIds(String specIds) {
-        this.specIds = specIds == null ? null : specIds.trim();
-    }
-
-    public String getBrandIds() {
-        return brandIds;
-    }
-
-    public void setBrandIds(String brandIds) {
-        this.brandIds = brandIds == null ? null : brandIds.trim();
-    }
-
-    public String getCustomAttributeItems() {
-        return customAttributeItems;
-    }
-
-    public void setCustomAttributeItems(String customAttributeItems) {
-        this.customAttributeItems = customAttributeItems == null ? null : customAttributeItems.trim();
-    }
 }

@@ -11,10 +11,12 @@ import com.hss.pyg.pojo.TbSpecification;
 import com.hss.pyg.pojo.TbSpecificationOption;
 import com.hss.pyg.pojogroup.Specification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class SpecificationServiceImpl extends ServiceImpl<TbSpecificationMapper, TbSpecification> implements SpecificationService {
     @Autowired
     TbSpecificationOptionMapper tbSpecificationOptionMapper;

@@ -1,8 +1,7 @@
 package com.pyg.manager.controller;
 
-import com.hss.pyg.entity.Result;
-
 import com.hss.pyg.entity.PageResult;
+import com.hss.pyg.entity.Result;
 import com.hss.pyg.pojo.TbBrand;
 import com.pyg.sellergoods.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+import java.util.Map;
 
 
 @RestController
@@ -81,6 +80,11 @@ public class BrandController {
 			e.printStackTrace();
 			return new Result(false, "删除失败");
 		}
+	}
+
+	@RequestMapping("/selectOptionList")
+	public List<Map<String, Object>> selectOptionList() {
+		return brandService.selectOptionList();
 	}
 	
 }

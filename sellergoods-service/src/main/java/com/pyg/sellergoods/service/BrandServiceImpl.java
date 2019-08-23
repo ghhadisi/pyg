@@ -10,6 +10,7 @@ import com.hss.pyg.pojo.TbBrand;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BrandServiceImpl extends ServiceImpl<TbBrandMapper, TbBrand> implements BrandService {//
@@ -60,4 +61,11 @@ public class BrandServiceImpl extends ServiceImpl<TbBrandMapper, TbBrand> implem
         PageResult result = new PageResult(pageResult.getTotal(),pageResult.getRecords());
         return result;
     }
+
+    @Override
+    public List<Map<String, Object>> selectOptionList() {
+        // TODO Auto-generated method stub
+        return baseMapper.selectMaps(null);
+    }
+
 }
