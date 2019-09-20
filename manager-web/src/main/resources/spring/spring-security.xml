@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd">
+
+<!--
+    <context:component-scan base-package="com.pyg.manager.controller" />
+-->
+
+    <mvc:annotation-driven >
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- 配置静态资源映射  -->
+    <!-- 指定/WEB-INF/js   /WEB-INF/css/  下的所有的静态资源包括子目录下的静态资源  都不被拦截-->
+    <!--  mapping=/js/**  :表示访问静态资源的路径的形式    可以访问 /js/下的静态资源或者所有的子目录下的静态资源-->
+    <!--    <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+        <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>-->
+
+    <!-- 引用dubbo服务 -->
+    <!--
+        <dubbo:monitor protocol="registry"/>
+    -->
+
+    <!--
+        <dubbo:protocol name="dubbo" port="${dubbo.port}"/>
+    -->
+
+    <!--security="none"  设置此资源不被拦截-->
+    <security:http pattern="/login.html" security="none"></security:http>
+    <security:http pattern="/login_error.html" security="none"></security:http>
+
+
+
+    <!-- 页面拦截规则 -->
+    <security:http use-expressions="false">
+        <security:intercept-url pattern="/**" access="ROLE_USER"/>
+        <security:form-login login-page="/login.html" default-target-url="/index.html"  authentication-failure-url="/login_error.html"/>
+
+        <!--
+        login-page：指定登录页面。
+        authentication-failure-url：指定了身份验证失败时跳转到的页面。
+        default-target-url：指定了成功进行身份验证和授权后默认呈现给用户的页面。
+        -->
+        <!--为开启表单登陆-->
+
+        <security:csrf disabled="true"/>
+        <!--  关闭csrf ,如果不加会出现错误-->
+        <security:logout/><!-- logout-url=""-->
+        <!--会自动的产生退出登录的地址/logout,如果你不想用这个地址 ，你也可以定义生成的退出地址以及跳转的页面，-->
+    </security:http>
+<!--
+use-expressions 为是否使用使用 Spring 表达式语言（ SpEL ），默认为true ,如果开启，则拦截的配置应该写成以下形式
+
+<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+-->
+    <!-- 认证管理器 -->
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service >
+                <security:user name="admin" password="123456" authorities="ROLE_USER"/>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+</beans>
