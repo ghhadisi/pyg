@@ -44,7 +44,7 @@
 
         <javassist.version>3.18.0-GA</javassist.version>
         <lombok.version>1.16.16</lombok.version>
-        <fastjson.version>1.2.59</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <slf4j.version>1.7.21</slf4j.version>
         <jackson.version>2.5.4</jackson.version>
 
